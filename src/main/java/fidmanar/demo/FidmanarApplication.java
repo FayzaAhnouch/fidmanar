@@ -1,0 +1,13 @@
+package fidmanar.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FidmanarApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(FidmanarApplication.class, args);
+    }
+
+}
