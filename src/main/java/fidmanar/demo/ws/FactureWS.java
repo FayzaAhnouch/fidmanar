@@ -9,6 +9,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("Fidmanar/Facture")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class FactureWS {
     @Autowired
     public FacturesService facturesService;

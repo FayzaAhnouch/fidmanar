@@ -10,6 +10,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("fidmanar/Cnss")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class CnssWS {
     @Autowired
     public CNSSService cnssService;

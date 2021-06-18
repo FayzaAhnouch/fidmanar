@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,10 +16,10 @@ public class Factures {
     private Date date;
     private long reference;
     private String type;
-    @OneToMany
-    private Achats achats;
-    @OneToMany
-    private Ventes ventes;
+    @OneToMany(mappedBy ="factures")
+    private List<Achats> achats;
+    @OneToMany(mappedBy = "factures")
+    private List<Ventes> ventes;
 
 
 

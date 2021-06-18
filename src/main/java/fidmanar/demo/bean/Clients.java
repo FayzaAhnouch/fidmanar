@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -19,12 +20,11 @@ public class Clients {
     private Date date_de_naissance;
     private String code;
     @OneToMany
-    private Personnels personnels;
-    @OneToMany
-    private Achats achats;
-    @OneToMany
-    private Ventes ventes;
+    private List<Personnels> personnels;
+    @OneToMany(mappedBy = "clients")
+    private List<Achats> achats;
 
-
+    @OneToMany(mappedBy = "clients")
+    private List<Ventes> ventes;
 
 }

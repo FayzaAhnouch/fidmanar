@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("fidmanar/Achats")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class AchatsWS {
     @Autowired
     public AchatsService achatsService;
@@ -19,7 +20,7 @@ public class AchatsWS {
         return achatsService.save(achats);
     }
 
-    @GetMapping("/date{date}")
+    @GetMapping("/date/{date}")
     public Achats findByDate(@PathVariable Date date) {
         return achatsService.findByDate(date);
     }

@@ -12,7 +12,7 @@ public interface PersonnelsDao extends JpaRepository<Personnels,Long> {
     Personnels findByDatederetraite(Date datederetraite);
     Personnels findBySalairedebase(String salairedebase);
 
-    int deleteByDatedembauche(Date datedembauche);
+    int deleteByDatedembauche(Date  datedembauche);
 
     int deleteBySalairedebase( String salairedebase);
 

@@ -9,7 +9,8 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("Fidmanar/Salaire")
-public class SalaireWS {
+@CrossOrigin(origins = {"http://localhost:4200"})
+public class PersonnelsWS {
 
     @Autowired
     public PersonnelsService personnelsService;
