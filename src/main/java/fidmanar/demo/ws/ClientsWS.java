@@ -47,5 +47,9 @@ public class ClientsWS {
         return clientsService.deleteByCode(code);
     }
 
+    @GetMapping("/")
+    public List<Clients> findAll(){
+        return this.clientsService.findAll();
+    }
 
 }

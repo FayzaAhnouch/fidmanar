@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class CNSSService {
@@ -45,10 +47,16 @@ public class CNSSService {
         return  cnssDao.findByNumerocnssAndReference( numerocnss ,reference);
     }
 
+    @Transactional
    public int deleteByReference(String reference){
         return cnssDao.deleteByReference(reference);
     }
+    @Transactional
    public int deleteByNumeroCnss(String numeroCnss){
         return cnssDao.deleteByNumerocnss(numeroCnss);
+    }
+
+    public List<CNSS> findAll() {
+        return this.cnssDao.findAll();
     }
 }

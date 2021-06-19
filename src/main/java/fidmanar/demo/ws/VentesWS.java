@@ -1,4 +1,5 @@
 package fidmanar.demo.ws;
+import fidmanar.demo.bean.Factures;
 import fidmanar.demo.bean.Ventes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import fidmanar.demo.service.VentesService;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("Fidmanar/Vente")
@@ -42,5 +44,9 @@ public class VentesWS {
     public int deleteByReference(@PathVariable String reference){
 
         return ventesService.deleteByReference(reference);
+    }
+    @GetMapping("/")
+    public List<Ventes> findAll() {
+        return ventesService.findAll();
     }
 }

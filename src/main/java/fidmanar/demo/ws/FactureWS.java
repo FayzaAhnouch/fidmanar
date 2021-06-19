@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import fidmanar.demo.service.FacturesService;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("Fidmanar/Facture")
@@ -44,5 +45,8 @@ public class FactureWS {
         return facturesService.deleteByType(type);
     }
 
-
+    @GetMapping("/")
+    public List<Factures> findAll() {
+        return facturesService.findAll();
+    }
 }

@@ -4,7 +4,9 @@ import fidmanar.demo.dao.PersonnelsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class PersonnelsService {
@@ -34,14 +36,19 @@ public class PersonnelsService {
             return personnelsDao.findBySalairedebase(salairedebase);
         }
 
+        @Transactional
        public int deleteByDatedembauche(Date datedembauche) {
             return personnelsDao.deleteByDatedembauche(datedembauche);
         }
 
+        @Transactional
          public int deleteBySalairedebase( String salairedebase) {
             return personnelsDao.deleteBySalairedebase(salairedebase);
         }
 
 
+    public List<Personnels> findall() {
+        return personnelsDao.findAll();
     }
+}
 

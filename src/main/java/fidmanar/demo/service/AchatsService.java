@@ -5,6 +5,7 @@ import fidmanar.demo.dao.AchatsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -44,17 +45,12 @@ public class AchatsService {
         return achatsDao.findByReferenceAndDate(reference , date );
     }
 
+    @Transactional
     public int deleteByReference(String reference){
         return achatsDao.deleteByReference(reference);
     }
     public List<Achats>findAll(){
         return achatsDao.findAll();
     }
-
-
-
-
-
-
 
 }

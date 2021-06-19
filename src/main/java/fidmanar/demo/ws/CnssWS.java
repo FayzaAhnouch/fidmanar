@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import fidmanar.demo.service.CNSSService;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("fidmanar/Cnss")
@@ -50,6 +51,9 @@ public class CnssWS {
         return deleteByNumeroCnss(numeroCnss);
     }
 
-
+    @GetMapping("/")
+     public List<CNSS> findAll(){
+        return this.cnssService.findAll();
+    }
 
 }
