@@ -8,6 +8,8 @@ import java.util.List;
 @Repository
 public interface ClientsDao extends JpaRepository<Clients, Long> {
 
+    List<Clients> findAll();
+
     Clients findByReference(String reference);
 
     Clients findByCode(String code);
@@ -17,9 +19,5 @@ public interface ClientsDao extends JpaRepository<Clients, Long> {
     int deleteByReference(String reference);
 
     int deleteByCode(String code);
-
-
-
-
 
 }

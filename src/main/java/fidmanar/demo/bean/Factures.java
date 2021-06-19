@@ -21,6 +21,4 @@ public class Factures {
     @OneToMany(mappedBy = "factures")
     private List<Ventes> ventes;
 
-
-
 }

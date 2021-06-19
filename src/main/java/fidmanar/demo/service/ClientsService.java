@@ -5,6 +5,7 @@ import fidmanar.demo.dao.ClientsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -40,10 +41,16 @@ public class ClientsService {
         return clientsDao.findByNomAndPrenom(nom, prenom);
     }
 
+    public List<Clients> findAll(){
+        return clientsDao.findAll();
+    }
+
+    @Transactional
    public int deleteByReference(String reference) {
         return clientsDao.deleteByReference(reference);
     }
 
+    @Transactional
    public int deleteByCode(String code) {
         return clientsDao.deleteByCode(code);
     }

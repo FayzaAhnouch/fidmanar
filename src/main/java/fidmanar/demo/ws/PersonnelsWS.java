@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import fidmanar.demo.service.PersonnelsService;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("Fidmanar/Salaire")
@@ -16,12 +17,9 @@ public class PersonnelsWS {
     public PersonnelsService personnelsService;
 
     @PostMapping("/")
-    public int save(Personnels personnels) {
+    public int save(@RequestBody Personnels personnels) {
         return personnelsService.save(personnels);
     }
-
-
-
 
         @GetMapping("/date-d-embauche/{datedembauche}")
     public Personnels findByDatedembauche(Date datedembauche){
@@ -45,11 +43,11 @@ public class PersonnelsWS {
         return personnelsService.deleteBySalairedebase(salairedebase);
     }
 
-
-
-
-
+    @GetMapping("/")
+    public List<Personnels> fondAll(){
+        return personnelsService.findall();
     }
+  }
 
 
 

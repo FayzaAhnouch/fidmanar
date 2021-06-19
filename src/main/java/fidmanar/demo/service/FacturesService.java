@@ -3,10 +3,13 @@ package fidmanar.demo.service;
 import fidmanar.demo.bean.Factures;
 
 import fidmanar.demo.dao.FacturesDao;
+import jdk.dynalink.linker.LinkerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class FacturesService {
@@ -42,11 +45,17 @@ public class FacturesService {
              return facturesDao.findByReferenceAndMontant(reference,montant);
         }
 
+        @Transactional
        public int deleteByReference(String reference){
              return facturesDao.deleteByReference(reference);
         }
+        @Transactional
        public int deleteByType(String type){
              return facturesDao.deleteByType(type);
+        }
+
+        public List<Factures> findAll(){
+         return this.facturesDao.findAll();
         }
     }
 
